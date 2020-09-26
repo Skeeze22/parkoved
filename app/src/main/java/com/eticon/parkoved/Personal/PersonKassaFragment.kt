@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.eticon.parkoved.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,8 +36,19 @@ class PersonKassaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_person_kassa, container, false)
+        var view = inflater.inflate(R.layout.fragment_person_kassa, container, false)
+        var btn = view.findViewById<ConstraintLayout>(R.id.start_det)
+        btn.setOnClickListener {
+            if (btn.findViewById<TextView>(R.id.text_btn).text == "Переключить на детский"){
+                view.findViewById<TextView>(R.id.discription).text = "Билет детский - 100 рублей"
+                btn.findViewById<TextView>(R.id.text_btn).text = "Переключить на взрослый"
+            }
+            else{
+                btn.findViewById<TextView>(R.id.text_btn).text = "Переключить на детский"
+                view.findViewById<TextView>(R.id.discription).text = "Билет взрослый - 100 рублей"
+            }
+        }
+        return view
     }
 
     companion object {
