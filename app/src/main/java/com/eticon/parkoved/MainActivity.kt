@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.eticon.parkoved.Personal.PersonalNavigator
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,10 +21,13 @@ class MainActivity : AppCompatActivity() {
         signInUser.setOnClickListener{
             var intent = Intent(this, CaseParkActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         signInPersonal.setOnClickListener {
-
+            var intent = Intent(this , PersonalNavigator::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }
