@@ -29,7 +29,10 @@ class NavigationActivity : AppCompatActivity() {
         }
 
         val mapFragment = MapFragment()
-        val ticketFragmement = TicketFragment()
+        val ticketFragment = TicketFragment()
+        val scanerFragment = SkanerFragment()
+        val routesFragment = RoutesFragment()
+        val profileFragment = ProfileFragment()
 
         bottomNavigator.setOnNavigationItemSelectedListener OnNavigationItemSelectedListener@{  MenuItem ->
             when(MenuItem.itemId){
@@ -38,15 +41,19 @@ class NavigationActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.ticket ->{
+                    supportFr.beginTransaction().replace(R.id.fl_content, ticketFragment).commit()
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.skaner -> {
+                    supportFr.beginTransaction().replace(R.id.fl_content, scanerFragment).commit()
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.routes->{
+                    supportFr.beginTransaction().replace(R.id.fl_content, routesFragment).commit()
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.profile -> {
+                    supportFr.beginTransaction().replace(R.id.fl_content, profileFragment).commit()
                     return@OnNavigationItemSelectedListener true
                 }
                 else -> return@OnNavigationItemSelectedListener true
