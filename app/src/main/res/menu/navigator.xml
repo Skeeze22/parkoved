@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/clock"
+        android:id="@+id/map"
         android:icon="@drawable/map"
-        android:title="" />
+        android:title="Карта" />
 
     <item
-        android:id="@+id/pencil"
+        android:id="@+id/ticket"
         android:icon="@drawable/ticket"
-        android:title="" />
+        android:title="Билеты" />
 
     <item
-        android:id="@+id/main"
+        android:id="@+id/skaner"
         android:icon="@drawable/skaner"
-        android:title=""/>
+        android:title="Сканер"/>
     <item
-        android:id="@+id/calendar"
+        android:id="@+id/routes"
         android:icon="@drawable/routes"
-        android:title=""/>
+        android:title="Маршруты"/>
     <item
-        android:id="@+id/wheel"
+        android:id="@+id/profile"
         android:icon="@drawable/profile"
-        android:title=""/>
+        android:title="Профиль"/>
 </menu>
