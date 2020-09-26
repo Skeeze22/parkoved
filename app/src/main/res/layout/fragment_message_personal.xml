@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,8 +8,77 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="personal message" />
+        android:id="@+id/admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
 
-</FrameLayout>
+        android:fontFamily="@font/avenir_bold"
+        android:textColor="@color/textColor"
+        android:textSize="25sp"
+        android:text="Сообщение администратору" />
+
+
+
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Тема сообщения"
+        android:textColorHint="@color/textColor"
+        app:layout_constraintTop_toBottomOf="@id/admin"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/text"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:hint="Сообщение"
+        android:textColorHint="@color/textColor"
+        app:layout_constraintTop_toBottomOf="@id/message"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/start_scanner"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        app:layout_constraintTop_toBottomOf="@id/text"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/primary_btn"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="150dp"
+        android:elevation="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Отправить"
+            android:textColor="@color/white"
+            android:fontFamily="@font/avenir_bold"
+            android:textSize="18sp"
+            />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
