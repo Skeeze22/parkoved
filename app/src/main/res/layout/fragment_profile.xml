@@ -1,14 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="60dp">
 
-</FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="Профиль"
+            android:textColor="@color/textColor"
+            android:fontFamily="@font/avenir_bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            android:textSize="22sp"
+            />
+
+        <TextView
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Сменить парк"
+            android:gravity="center"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/primary"
+            android:fontFamily="@font/avenir_bold"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constr"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/cards"
+        android:elevation="10dp">
+
+        <TextView
+            android:id="@+id/user_name"
+            android:text="Кульшин Роман"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/avenir_bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/textColor"
+            />
+
+        <TextView
+            android:id="@+id/user_age"
+            android:text="20 лет"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/user_name"
+            app:layout_constraintBottom_toBottomOf="@id/user_name"
+            android:fontFamily="@font/avenir_demi"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@id/user_name"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/ball"
+            android:text="Количество баллов: 1448"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/user_name"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/avenir_demi"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/textColor"
+            />
+
+        <TextView
+            android:id="@+id/redact"
+            android:text="Редактировать профиль"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/avenir_demi"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:textSize="12sp"
+            android:textColor="@color/textColor"
+
+            />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintTop_toTopOf="@id/redact"
+            app:layout_constraintBottom_toBottomOf="@id/redact"
+            app:layout_constraintEnd_toStartOf="@id/redact"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_create"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/flush"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:layout_constraintTop_toBottomOf="@id/constr"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/primary_btn"
+        android:textColor="@color/white"
+        android:fontFamily="@font/avenir_bold"
+        android:text="Потратить баллы"
+        android:textAllCaps="false"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/ref"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:layout_constraintTop_toBottomOf="@id/flush"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/primary_btn"
+        android:textColor="@color/white"
+        android:fontFamily="@font/avenir_bold"
+        android:text="Получите реферальную ссылку"
+        android:textAllCaps="false"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/obr"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:layout_constraintTop_toBottomOf="@id/ref"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/primary_btn"
+        android:textColor="@color/white"
+        android:fontFamily="@font/avenir_bold"
+        android:text="Написать обращение"
+        android:textAllCaps="false"
+        android:textSize="18sp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
