@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
@@ -45,7 +44,7 @@ class PersonalScanerFragment : Fragment() {
         btn.setOnClickListener {
             val integrator = IntentIntegrator(activity)
             integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
-            integrator.setPrompt("Scan a barcode")
+            integrator.setPrompt(" ")
             integrator.setCameraId(0)
             integrator.setBeepEnabled(false)
             integrator.setBarcodeImageEnabled(true)

@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.eticon.parkoved">
+
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" />
+
     <application
         android:hardwareAccelerated="true"
         android:allowBackup="true"
@@ -11,12 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Personal.PersonalNavigator"></activity>
-        <activity android:name=".NavigationActivity" />
-        <activity android:name=".CaseParkInCityActivity" />
-        <activity android:name=".CaseCityActivity" />
-        <activity android:name=".CaseParkActivity" />
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".Personal.PersonalNavigator" android:screenOrientation="portrait"/>
+        <activity android:name=".NavigationActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".CaseParkInCityActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".CaseCityActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".CaseParkActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
