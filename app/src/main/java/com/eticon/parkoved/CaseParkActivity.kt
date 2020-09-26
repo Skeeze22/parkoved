@@ -1,5 +1,6 @@
 package com.eticon.parkoved
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +15,8 @@ class CaseParkActivity : AppCompatActivity() {
         rukami_lol = findViewById(R.id.rukami_lol)
 
         rukami_lol.setOnClickListener{
-
+            val intent = Intent(this, CaseCityActivity::class.java)
+            startActivity(intent)
         }
     }
 }
