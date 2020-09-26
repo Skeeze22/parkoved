@@ -57,17 +57,17 @@ class PersonalNavigator : AppCompatActivity() {
         val args = Bundle()
         if (result != null) {
             if (result.contents == null) {
-               args.putString("Bilet", "Билет не действителен")
-                fragment.findViewById<TextView>(R.id.text_mess).text = "Билет не действителен"
+
+                fragment.findViewById<TextView>(R.id.text_mess).text = "Вход запрещен"
                 fragment.findViewById<TextView>(R.id.text_mess).setTextColor(getColor(R.color.red))
             } else {
-                if (result.contents == "Билет действителен"){
-                    Log.d("RES2", "1")
-                    fragment.findViewById<TextView>(R.id.text_mess).text = "Билет  действителен"
+                if (result.contents == "Вход"){
+
+                    fragment.findViewById<TextView>(R.id.text_mess).text = "Вход разрешен"
                     fragment.findViewById<TextView>(R.id.text_mess).setTextColor(getColor(R.color.green))
                 }
                 else{
-                    fragment.findViewById<TextView>(R.id.text_mess).text = "Билет не действителен"
+                    fragment.findViewById<TextView>(R.id.text_mess).text = "Билет запрещен"
                     fragment.findViewById<TextView>(R.id.text_mess).setTextColor(getColor(R.color.red))
                 }
             }

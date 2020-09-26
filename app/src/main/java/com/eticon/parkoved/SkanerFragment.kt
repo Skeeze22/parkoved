@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.google.zxing.integration.android.IntentIntegrator
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,19 +35,22 @@ class SkanerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_skaner, container, false)
+        var view = inflater.inflate(R.layout.fragment_skaner, container, false)
+        var btn = view.findViewById<ConstraintLayout>(R.id.start_sc)
+        btn.setOnClickListener {
+            val integrator = IntentIntegrator(activity)
+            integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+            integrator.setPrompt(" ")
+            integrator.setCameraId(0)
+            integrator.setBeepEnabled(false)
+            integrator.setBarcodeImageEnabled(true)
+            integrator.initiateScan()
+        }
+        return view
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SkanerFragment.
-         */
+
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =

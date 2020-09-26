@@ -1,10 +1,14 @@
 package com.eticon.parkoved
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.FrameLayout
+import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.zxing.integration.android.IntentIntegrator
 
 class NavigationActivity : AppCompatActivity() {
 
@@ -67,6 +71,35 @@ class NavigationActivity : AppCompatActivity() {
     fun initViews(){
         bottomNavigator = findViewById(R.id.navigation)
         layoutFragment = findViewById(R.id.fl_content)
+    }
+
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
+        val result =
+            IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        var fragment = findViewById<FrameLayout>(R.id.fl_content)
+        val args = Bundle()
+        if (result != null) {
+            if (result.contents == null) {
+
+                fragment.findViewById<TextView>(R.id.textView).text = "Билет не был куплен"
+                fragment.findViewById<TextView>(R.id.textView).setTextColor(getColor(R.color.red))
+            } else {
+                if (result.contents == "Билет"){
+                    fragment.findViewById<TextView>(R.id.textView).text = "Билет куплен"
+                    fragment.findViewById<TextView>(R.id.textView).setTextColor(getColor(R.color.green))
+                }
+                else{
+                    fragment.findViewById<TextView>(R.id.textView).text = "Билет не был куплен"
+                    fragment.findViewById<TextView>(R.id.textView).setTextColor(getColor(R.color.red))
+                }
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
 }
