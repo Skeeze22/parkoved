@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Personal.PersonKassaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/label_kassa"
         android:layout_width="wrap_content"
@@ -17,25 +16,26 @@
         android:layout_marginStart="20dp"
         android:fontFamily="@font/avenir_bold"
         android:textColor="@color/textColor"
-        android:textSize="35sp"
+        android:textSize="26sp"
         android:text="Касса" />
+
     <TextView
         android:id="@+id/attraction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@+id/label_kassa"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="20dp"
         android:fontFamily="@font/avenir_bold"
         android:textColor="@color/textColor"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:text="Аттракцион: Колесо обзора" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/primary_btn"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="150dp"
         android:elevation="10dp">
