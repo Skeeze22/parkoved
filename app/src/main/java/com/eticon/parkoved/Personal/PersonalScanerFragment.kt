@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.eticon.parkoved.R
 import com.google.zxing.integration.android.IntentIntegrator
@@ -40,7 +41,7 @@ class PersonalScanerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
        var view = inflater.inflate(R.layout.fragment_personal_scaner, container, false)
-        var btn = view.findViewById<Button>(R.id.start_scan)
+        var btn = view.findViewById<ConstraintLayout>(R.id.start_scanner)
         btn.setOnClickListener {
             val integrator = IntentIntegrator(activity)
             integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
