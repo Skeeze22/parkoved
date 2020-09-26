@@ -37,7 +37,7 @@ class RoutesFragment : Fragment() {
         line_2 = view.findViewById(R.id.line_2)
 
         line_1.setOnClickListener {
-
+            activity!!.supportFragmentManager.beginTransaction().replace(R.id.fl_content, PersonalRoutFragment()).commit()
         }
 
         line_2.setOnClickListener {
