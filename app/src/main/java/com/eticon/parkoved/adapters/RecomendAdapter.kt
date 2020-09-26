@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eticon.parkoved.R
 import com.eticon.parkoved.dataclasses.RecomendData
 
-class RecomendAdapter (var items: List<RecomendData>) : RecyclerView.Adapter<RecomendAdapter.MainHolder>() {
+class RecomendAdapter (var items: List<RecomendData>, val callback: Callback) : RecyclerView.Adapter<RecomendAdapter.MainHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)  = MainHolder(LayoutInflater.from(parent.context).inflate(
         R.layout.element_recomend, parent, false))
     override fun getItemCount() = items.size
@@ -25,8 +25,16 @@ class RecomendAdapter (var items: List<RecomendData>) : RecyclerView.Adapter<Rec
         fun bind(item: RecomendData) {
             img.setImageResource(item.image)
             txt.text = item.text
+            itemView.setOnClickListener {
+                if (adapterPosition != RecyclerView.NO_POSITION) callback.onItemClicked(items[adapterPosition])
+
+            }
 
         }
+    }
+
+    interface Callback {
+        fun onItemClicked(item: RecomendData)
     }
 
 }

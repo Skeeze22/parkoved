@@ -12,7 +12,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/geoposition">
+        app:layout_constraintBottom_toTopOf="@id/geoposition"
+        android:layout_marginBottom="40dp">
 
         <TextView
             android:id="@+id/label_park"

@@ -8,9 +8,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class NavigationActivity : AppCompatActivity() {
 
-    lateinit  var bottomNavigator: BottomNavigationView
+    lateinit var bottomNavigator: BottomNavigationView
     lateinit var context: Context
     lateinit var layoutFragment: FrameLayout
+    //lateinit var supportFr: supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -44,7 +44,7 @@ class MapFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_map, container, false)
         val items = listOf<String>("Аттракционы", "Кафе и рестораны", "Парковки", "Туалеты")
         val itemsRecomend = mutableListOf<RecomendData>()
-        itemsRecomend.add(RecomendData("Колесо обзора", R.drawable.koleso))
+        itemsRecomend.add(RecomendData("Колесо обзора", R.drawable.koleso2))
         itemsRecomend.add(RecomendData("Свадебная карусель", R.drawable.karusel))
         itemsRecomend.add(RecomendData("Веселые горки", R.drawable.gorki))
 
@@ -57,7 +57,20 @@ class MapFragment : Fragment() {
         recycler.adapter = MapAdapter(items)
 
         recycler_recomend.layoutManager = LinearLayoutManager(activity?.applicationContext , LinearLayoutManager.HORIZONTAL, false)
-        recycler_recomend.adapter = RecomendAdapter(itemsRecomend)
+
+        val adapter = RecomendAdapter(itemsRecomend, object : RecomendAdapter.Callback{
+
+            override fun onItemClicked(item: RecomendData) {
+                val fr = InfoAttracFragment()
+                val bundle = Bundle()
+                bundle.putInt("img", item.image)
+                bundle.putString("text", item.text)
+                fr.arguments = bundle
+                activity!!.supportFragmentManager.beginTransaction().replace(R.id.fl_content, fr).commit()
+
+            }
+        })
+        recycler_recomend.adapter = adapter
 
         exitBtn.setOnClickListener {
             val intent = Intent(activity, CaseCityActivity::class.java)
