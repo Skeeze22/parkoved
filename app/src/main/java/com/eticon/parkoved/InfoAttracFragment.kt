@@ -44,7 +44,8 @@ class InfoAttracFragment : Fragment() {
         buy = view.findViewById(R.id.buy_ticket)
 
         label.text = arguments!!.getString("text")
-        img.setImageResource(arguments!!.getInt("img"))
+        val res = arguments!!.getInt("img")
+        img.setImageResource(res)
 
         back_btn.setOnClickListener {
             activity!!.supportFragmentManager.beginTransaction().replace(R.id.fl_content, MapFragment()).commit()
@@ -54,6 +55,7 @@ class InfoAttracFragment : Fragment() {
             val fr = BuyTicketFragment()
             val bundle = Bundle()
             bundle.putString("text", label.text.toString())
+            bundle.putInt("img", res)
             fr.arguments = bundle
             activity!!.supportFragmentManager.beginTransaction().replace(R.id.fl_content, fr).commit()
         }

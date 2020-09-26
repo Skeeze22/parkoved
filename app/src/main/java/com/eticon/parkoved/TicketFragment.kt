@@ -5,19 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TicketFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class TicketFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
+    lateinit var line_1: ConstraintLayout
+    lateinit var line_2: ConstraintLayout
+    lateinit var line_3: ConstraintLayout
+
+    lateinit var label_1: TextView
+    lateinit var label_2: TextView
+    lateinit var label_3: TextView
+
     private var param1: String? = null
     private var param2: String? = null
 
@@ -33,20 +38,45 @@ class TicketFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ticket, container, false)
+        val view = inflater.inflate(R.layout.fragment_ticket, container, false)
+
+        line_1 = view.findViewById(R.id.line_1)
+        line_2 = view.findViewById(R.id.line_2)
+        line_3 = view.findViewById(R.id.line_3)
+
+        label_1 = view.findViewById(R.id.label_1)
+        label_2 = view.findViewById(R.id.label_2)
+        label_3 = view.findViewById(R.id.label_3)
+
+        line_1.setOnClickListener {
+            val fr = CurrentTicketFragment()
+            val bundle = Bundle()
+            bundle.putString("text", label_1.text.toString())
+            fr.arguments = bundle
+            activity!!.supportFragmentManager.beginTransaction().replace(R.id.fl_content, fr).commit()
+        }
+
+        line_2.setOnClickListener {
+            val fr = CurrentTicketFragment()
+            val bundle = Bundle()
+            bundle.putString("text", label_2.text.toString())
+            fr.arguments = bundle
+            activity!!.supportFragmentManager.beginTransaction().replace(R.id.fl_content, fr).commit()
+        }
+
+        line_3.setOnClickListener {
+            val fr = CurrentTicketFragment()
+            val bundle = Bundle()
+            bundle.putString("text", label_3.text.toString())
+            fr.arguments = bundle
+            activity!!.supportFragmentManager.beginTransaction().replace(R.id.fl_content, fr).commit()
+        }
+
+        return view
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TicketFragment.
-         */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             TicketFragment().apply {
