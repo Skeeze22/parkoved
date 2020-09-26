@@ -1,11 +1,16 @@
 package com.eticon.parkoved.Personal
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.eticon.parkoved.R
+import com.google.zxing.integration.android.IntentIntegrator
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,19 +39,36 @@ class PersonalScanerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_personal_scaner, container, false)
+       var view = inflater.inflate(R.layout.fragment_personal_scaner, container, false)
+        var btn = view.findViewById<Button>(R.id.start_scan)
+        btn.setOnClickListener {
+            val integrator = IntentIntegrator(activity)
+            integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+            integrator.setPrompt("Scan a barcode")
+            integrator.setCameraId(0)
+            integrator.setBeepEnabled(false)
+            integrator.setBarcodeImageEnabled(true)
+            integrator.initiateScan()
+        }
+        var text = view.findViewById<TextView>(R.id.text_mess)
+        var string = getArguments()?.getString("Bilet")
+        Log.d("Строка",string.toString())
+        if (string!= null){
+            if (string == "Билет действителен"){
+                text.text = string
+                text.setTextColor(activity!!.getColor(R.color.green))
+            }
+            else{
+                text.setTextColor(activity!!.getColor(R.color.red))
+                text.text = "Билет не действителен"
+            }
+        }
+
+        return view
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PersonalScanerFragment.
-         */
+
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
